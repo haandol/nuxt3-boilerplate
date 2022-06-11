@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { useSearchStore } from './search'
 
 interface Show {
   show: {
@@ -25,8 +26,11 @@ export const useShowStore = defineStore('show', {
     },
   },
   actions: {
-    async fetchShows(query: string) {
-      const resp = await fetch(`https://api.tvmaze.com/search/shows?q=${query}`)
+    async fetchShows() {
+      const store = useSearchStore()
+      const resp = await fetch(
+        `https://api.tvmaze.com/search/shows?q=${store.query}`
+      )
       const data: Show[] = await resp.json()
       this.shows = data
     },

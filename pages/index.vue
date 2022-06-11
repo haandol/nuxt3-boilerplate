@@ -24,14 +24,16 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
   import { storeToRefs } from 'pinia'
   import { useShowStore } from '@/stores/show'
-  const query = ref('')
-  const store = useShowStore()
-  const { shows } = storeToRefs(store)
+  import { useSearchStore } from '@/stores/search'
+  const showStore = useShowStore()
+  const searchStore = useSearchStore()
+
+  const { query } = storeToRefs(searchStore)
+  const { shows } = storeToRefs(showStore)
 
   async function searchShow() {
-    await store.fetchShows(query.value)
+    await showStore.fetchShows()
   }
 </script>

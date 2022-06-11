@@ -8,8 +8,11 @@ specifiers:
   '@tailwindcss/line-clamp': 0.4.0
   '@tailwindcss/typography': 0.5.2
   autoprefixer: 10.4.7
+  cookie: ^0.5.0
+  js-cookie: ^3.0.1
   nuxt: 3.0.0-rc.3
   pinia: 2.0.14
+  pinia-plugin-persistedstate-2: ^1.0.0
   postcss-custom-properties: 12.1.7
   sass: 1.52.3
   sass-loader: 13.0.0
@@ -21,7 +24,10 @@ dependencies:
   '@tailwindcss/forms': 0.5.2_tailwindcss@3.1.0
   '@tailwindcss/line-clamp': 0.4.0_tailwindcss@3.1.0
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.1.0
+  cookie: 0.5.0
+  js-cookie: 3.0.1
   pinia: 2.0.14
+  pinia-plugin-persistedstate-2: 1.0.0_pinia@2.0.14
 
 devDependencies:
   '@nuxtjs/tailwindcss': 5.1.2
@@ -1642,6 +1648,11 @@ packages:
     resolution: {integrity: sha512-RyZrFi6PNpBFbIaQjXDlFIhFVqV42QeKSZX1yQIl6ihImq6vcHNGMtqQ/QzY3RMPuYSkvsRwtnt5M9NeYxKt0g==}
     dev: true
 
+  /cookie/0.5.0:
+    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
+    engines: {node: '>= 0.6'}
+    dev: false
+
   /cookies/0.8.0:
     resolution: {integrity: sha512-8aPsApQfebXnuI+537McwYsDtjVxGm8gTIzQI3FDW6t5t/DAhERxtnbEPN/8RX+uZthoz4eCOgloXaE5cYyNow==}
     engines: {node: '>= 0.8'}
@@ -2980,6 +2991,11 @@ packages:
     hasBin: true
     dev: true
 
+  /js-cookie/3.0.1:
+    resolution: {integrity: sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==}
+    engines: {node: '>=12'}
+    dev: false
+
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
     dev: true
@@ -3927,6 +3943,16 @@ packages:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
 
+  /pinia-plugin-persistedstate-2/1.0.0_pinia@2.0.14:
+    resolution: {integrity: sha512-ypsHZNbZ/A8dy4VzRsmW2u57M/Fxg1RFyAEoxK+/xfAhPwATsFQ/zYOqWHsCbxC4UCnqzg4rFpXH58OlZWq0EQ==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.5.0, pnpm: '>=6.22.2'}
+    peerDependencies:
+      pinia: ^2.0.6
+    dependencies:
+      pinia: 2.0.14
+      shvl: 2.0.3
+    dev: false
+
   /pinia/2.0.14:
     resolution: {integrity: sha512-0nPuZR4TetT/WcLN+feMSjWJku3SQU7dBbXC6uw+R6FLQJCsg+/0pzXyD82T1FmAYe0lsx+jnEDQ1BLgkRKlxA==}
     peerDependencies:
@@ -4841,6 +4867,11 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
     dev: true
+
+  /shvl/2.0.3:
+    resolution: {integrity: sha512-V7C6S9Hlol6SzOJPnQ7qzOVEWUQImt3BNmmzh40wObhla3XOYMe4gGiYzLrJd5TFa+cI2f9LKIRJTTKZSTbWgw==}
+    deprecated: older versions vulnerable to prototype pollution
+    dev: false
 
   /side-channel/1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}

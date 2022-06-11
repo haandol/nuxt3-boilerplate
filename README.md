@@ -1,7 +1,7 @@
 # Nuxt 3 Boilerplate example
 
 - Nuxt3
-- Pinia
+- Pinia and pinia-plugin-persistedstate-2
 - Scss
 - Eslint
 - Prettier
