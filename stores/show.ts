@@ -18,11 +18,11 @@ interface Show {
 export const useShowStore = defineStore('show', {
   state: () => ({
     showId: '',
-    shows: [],
+    shows: [] as Show[],
   }),
   getters: {
     show(): Show {
-      return this.shows.find((show) => show.id === this.showId)
+      return this.shows.find(show => show.id === this.showId)
     },
   },
   actions: {
