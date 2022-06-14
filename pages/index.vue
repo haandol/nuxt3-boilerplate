@@ -12,7 +12,7 @@
     <div
       class="grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6"
     >
-      <div v-for="show in shows" :key="show.show.id">
+      <div class="show" v-for="show in shows" :key="show.show.id">
         <NuxtLink :to="`/episodes/${show.show.id}`">
           <p>{{ show.show.name }}</p>
           <img :src="show.show.image?.medium" alt="" />

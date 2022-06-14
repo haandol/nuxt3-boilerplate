@@ -2,7 +2,7 @@
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  css: ['@/assets/css/tailwind.css'],
+  css: ['@/assets/css/tailwind.css', '@/assets/css/main.scss'],
   modules: ['@nuxtjs/tailwindcss'],
   buildModules: [
     // pinia plugin - https://pinia.esm.dev
@@ -19,6 +19,11 @@ export default defineNuxtConfig({
   },
   vite: {
     logLevel: 'info',
+    css: {
+      preprocessorOptions: {
+        scss: {},
+      },
+    },
   },
   typescript: {
     shim: false,
