@@ -2,8 +2,8 @@
   <div class="grid">
     <div class="grid grid-cols-1 gap-4">
       <input
-        type="text"
         v-model="query"
+        type="text"
         class="w-full"
         placeholder="Search..."
       />
@@ -12,7 +12,7 @@
     <div
       class="grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6"
     >
-      <div class="show" v-for="show in shows" :key="show.show.id">
+      <div v-for="show in shows" :key="show.show.id" class="show">
         <NuxtLink :to="`/episodes/${show.show.id}`">
           <p>{{ show.show.name }}</p>
           <img :src="show.show.image?.medium" alt="" />
@@ -24,16 +24,16 @@
 </template>
 
 <script setup lang="ts">
-  import { storeToRefs } from 'pinia'
-  import { useShowStore } from '@/stores/show'
-  import { useSearchStore } from '@/stores/search'
-  const showStore = useShowStore()
-  const searchStore = useSearchStore()
+import { storeToRefs } from 'pinia'
+import { useShowStore } from '@/stores/show'
+import { useSearchStore } from '@/stores/search'
+const showStore = useShowStore()
+const searchStore = useSearchStore()
 
-  const { query } = storeToRefs(searchStore)
-  const { shows } = storeToRefs(showStore)
+const { query } = storeToRefs(searchStore)
+const { shows } = storeToRefs(showStore)
 
-  async function searchShow() {
-    await showStore.fetchShows()
-  }
+async function searchShow() {
+  await showStore.fetchShows()
+}
 </script>
