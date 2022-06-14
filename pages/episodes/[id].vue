@@ -8,7 +8,7 @@
     <div
       class="grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6"
     >
-      <div v-for="episode in episodes" :key="episode.id">
+      <div class="episode" v-for="episode in episodes" :key="episode.id">
         <div>
           {{ episode.name }}
         </div>
@@ -32,3 +32,14 @@
   const { episodes } = storeToRefs(episodeStore)
   await episodeStore.fetchEpisodes()
 </script>
+
+<style lang="scss">
+  .episode {
+    div {
+      &:first-child {
+        font-style: italic;
+        color: red;
+      }
+    }
+  }
+</style>
