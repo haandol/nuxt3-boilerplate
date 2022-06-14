@@ -22,7 +22,7 @@ export const useShowStore = defineStore('show', {
   }),
   getters: {
     show(): Show {
-      return this.shows.find(show => show.id === this.showId)
+      return this.shows.find((show) => show.id === this.showId)
     },
   },
   actions: {

@@ -7,7 +7,7 @@ export default function ({ $pinia, ssrContext }) {
     createPersistedStatePlugin({
       // plugin options goes here
       storage: {
-        getItem: key => {
+        getItem: (key) => {
           // See https://nuxtjs.org/guide/plugins/#using-process-flags
           if (process.server) {
             const parsedCookies = cookie.parse(ssrContext.req.headers.cookie)
@@ -19,7 +19,7 @@ export default function ({ $pinia, ssrContext }) {
         // Please see https://github.com/js-cookie/js-cookie#json, on how to handle JSON.
         setItem: (key, value) =>
           Cookies.set(key, value, { expires: 365, secure: false }),
-        removeItem: key => Cookies.remove(key),
+        removeItem: (key) => Cookies.remove(key),
       },
     })
   )

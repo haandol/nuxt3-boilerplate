@@ -19,20 +19,23 @@
     "sourceType": "module"
   },
   "rules": {
+    "vue/html-indent": ["error", 2, {}],
     "vue/no-v-html": "off",
+    "vue/require-default-prop": "off",
     "vue/html-self-closing": "off",
     "vue/singleline-html-element-content-newline": "off",
     "space-before-function-paren": "off",
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-parens": ["error", "always"],
     "@typescript-eslint/no-unused-vars": "off",
     "comma-dangle": ["error", "only-multiline"],
+    "no-console": "off",
     "prettier/prettier": [
       "error",
       {
         "trailingComma": "es5",
         "tabWidth": 2,
         "singleQuote": true,
-        "arrowParens": "avoid",
+        "arrowParens": "always",
         "semi": false,
         "printWidth": 80
       }
