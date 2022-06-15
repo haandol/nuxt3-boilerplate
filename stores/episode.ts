@@ -28,9 +28,7 @@ export const useEpisodeStore = defineStore('episodes', {
   },
   actions: {
     async fetchEpisodes() {
-      const resp = await fetch(
-        `https://api.tvmaze.com/shows/${this.showId}/episodes`
-      )
+      const resp = await fetch(`https://api.tvmaze.com/shows/${this.showId}/episodes`)
       const data: Episode[] = await resp.json()
       this.episodes = data
     },

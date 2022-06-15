@@ -14,12 +14,20 @@
   ],
   "plugins": ["vue", "prettier", "@typescript-eslint"],
   "parserOptions": {
-    "ecmaVersion": 2021,
+    "ecmaVersion": "latest",
     "parser": "@typescript-eslint/parser",
     "sourceType": "module"
   },
   "rules": {
-    "vue/html-indent": ["error", 2, {}],
+    "vue/html-indent": [
+      "error",
+      2,
+      {
+        "attribute": 1,
+        "baseIndent": 1,
+        "closeBracket": 0
+      }
+    ],
     "vue/no-v-html": "off",
     "vue/require-default-prop": "off",
     "vue/html-self-closing": "off",
@@ -33,11 +41,15 @@
       "error",
       {
         "trailingComma": "es5",
+        "useTabs": false,
         "tabWidth": 2,
         "singleQuote": true,
         "arrowParens": "always",
         "semi": false,
-        "printWidth": 80
+        "printWidth": 120,
+        "bracketSpacing": true,
+        "bracketSameLine": false,
+        "singleAttributePerLine": true
       }
     ]
   }
