@@ -6,6 +6,7 @@
 - Eslint
 - Prettier
 - TailwinCSS + PostCSS
+- Storybook
 
 # Installation
 
