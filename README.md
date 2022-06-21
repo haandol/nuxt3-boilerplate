@@ -19,7 +19,7 @@ $ pnpm install --shamefully-hoist
 ## Dev
 
 ```bash
-$ pnpm dev
+$ pnpm dev -o
 ```
 
 ## Production
@@ -34,3 +34,10 @@ Locally preview production build:
 $ pnpm run preview
 ```
 ````
+
+## Storybooy
+
+```bash
+$ pnpm storybook
+$ open localhost:6006
+```
