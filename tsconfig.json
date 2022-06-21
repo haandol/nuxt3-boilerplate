@@ -1,4 +1,15 @@
 {
   // https://v3.nuxtjs.org/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "types": ["vite/client", "node", "@pinia/nuxt"],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "exclude": ["**/node_modules", "**/dist", "**/*.stories.ts"]
 }
