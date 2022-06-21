@@ -4,7 +4,7 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   publicRuntimeConfig: {},
   privateRuntimeConfig: {},
-  css: ['@assets/css/tailwind.css', '@assets/css/main.scss'],
+  css: ['@/assets/css/tailwind.css', '@/assets/css/main.scss'],
   modules: ['@nuxtjs/tailwindcss'],
   buildModules: [
     // pinia plugin - https://pinia.esm.dev
