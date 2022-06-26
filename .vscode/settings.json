@@ -8,5 +8,6 @@
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "git.autofetch": true,
+  "scss.lint.unknownAtRules": "ignore",
   "prettier.printWidth": 80
 }

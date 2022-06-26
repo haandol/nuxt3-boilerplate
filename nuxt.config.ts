@@ -2,17 +2,13 @@
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  publicRuntimeConfig: {},
-  privateRuntimeConfig: {},
+  runtimeConfig: {},
   css: ['@/assets/css/tailwind.css', '@/assets/css/main.scss'],
   modules: ['@nuxtjs/tailwindcss'],
   buildModules: [
     // pinia plugin - https://pinia.esm.dev
     '@pinia/nuxt',
   ],
-  build: {
-    // transpile: ['@heroicons/vue', '@headlessui/vue'],
-  },
   postcss: {
     plugins: {
       tailwindcss: {},
