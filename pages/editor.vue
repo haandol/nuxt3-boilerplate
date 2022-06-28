@@ -1,5 +1,9 @@
 <template>
   <div class="container grid grid-cols-2 gap-2 p-4">
+    <component
+      :is="'script'"
+      src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"
+    ></component>
     <div>
       <ul class="sections">
         <li
@@ -79,18 +83,20 @@ const onClickItem = (e, i) => {
   })
 }
 
-const startDrag = (event, i) => {
+const startDrag = (event, srcIndex: number) => {
+  console.log('startDrag', event, srcIndex)
+
   event.dataTransfer.dropEffect = 'move'
   event.dataTransfer.effectAllowed = 'move'
-  event.dataTransfer.setData('index', i)
+  event.dataTransfer.setData('text', `${srcIndex}`)
 }
 
-const onDrop = (event, targetIndex) => {
-  const srcIndex = parseInt(event.dataTransfer.getData('index'))
+const onDrop = (event, targetIndex: number) => {
+  console.log('onDrop', event, targetIndex)
+
+  const srcIndex = parseInt(event.dataTransfer.getData('text'))
   const srcRef = itemRefs.value[srcIndex]
   const srcItem = items.value[srcIndex]
-
-  console.log(srcIndex, targetIndex)
 
   if (srcIndex > targetIndex) {
     for (let i = srcIndex; i > targetIndex; i--) {
