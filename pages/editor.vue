@@ -5,8 +5,8 @@
         <li
           v-for="(item, i) in items"
           :key="item.id"
-          :class="{ item: true }"
-          @click.prevent="(e) => onClick(e, i)"
+          :class="{ item: true, selected: selectedIndex === i }"
+          @click.prevent="(e) => onClickSection(e, i)"
         >
           {{ item.title }}
         </li>
@@ -19,6 +19,7 @@
         ref="itemRefs"
         href="#"
         :class="{ el: true, selected: selectedIndex === i }"
+        @click.prevent="(e) => onClickItem(e, i)"
       >
         {{ item.id }}
       </a>
@@ -44,7 +45,22 @@ const items = ref([
 const selectedIndex = ref(null)
 const itemRefs = ref([])
 
-const onClick = (e, i) => {
+const onClickSection = (e, i) => {
+  emit('click', e)
+  console.log(e, i)
+
+  selectedIndex.value = i
+
+  const top = itemRefs.value[i].offsetTop
+  console.log(top)
+  window.scroll({
+    left: 0,
+    top: top - 10,
+    behavior: 'smooth',
+  })
+}
+
+const onClickItem = (e, i) => {
   emit('click', e)
   console.log(e, i)
 
@@ -84,9 +100,9 @@ const onClick = (e, i) => {
   @apply block border border-slate-300 rounded my-4;
   height: 580px;
   width: 100%;
+}
 
-  &.selected {
-    @apply border-dashed border-red-600;
-  }
+.selected {
+  @apply border-dashed border-red-600;
 }
 </style>
