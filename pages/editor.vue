@@ -3,6 +3,7 @@
     <component
       :is="'script'"
       src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"
+      async
     ></component>
     <div>
       <ul class="sections">
