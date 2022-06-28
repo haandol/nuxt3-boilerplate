@@ -38,6 +38,7 @@ specifiers:
   typescript: ^4.7.3
   vite-plugin-eslint: ^1.6.1
   vue-loader: ^16.8.3
+  vuedraggable: ^4.1.0
 
 dependencies:
   '@pinia/nuxt': 0.1.9_pinia@2.0.14
@@ -45,6 +46,7 @@ dependencies:
   js-cookie: 3.0.1
   pinia: 2.0.14_typescript@4.7.3
   pinia-plugin-persistedstate-2: 1.0.0_pinia@2.0.14
+  vuedraggable: 4.1.0
 
 devDependencies:
   '@babel/core': 7.18.5
@@ -14199,6 +14201,10 @@ packages:
       - supports-color
     dev: true
 
+  /sortablejs/1.14.0:
+    resolution: {integrity: sha512-pBXvQCs5/33fdN1/39pPL0NZF20LeRbLQ5jtnheIPN9JQAaufGjKdWduZn4U7wCtVuzKhmRkI0DFYHYRbB2H1w==}
+    dev: false
+
   /source-list-map/2.0.1:
     resolution: {integrity: sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==}
     dev: true
@@ -15894,6 +15900,14 @@ packages:
       '@vue/server-renderer': 3.2.37_vue@3.2.37
       '@vue/shared': 3.2.37
     dev: true
+
+  /vuedraggable/4.1.0:
+    resolution: {integrity: sha512-FU5HCWBmsf20GpP3eudURW3WdWTKIbEIQxh9/8GE806hydR9qZqRRxRE3RjqX7PkuLuMQG/A7n3cfj9rCEchww==}
+    peerDependencies:
+      vue: ^3.0.1
+    dependencies:
+      sortablejs: 1.14.0
+    dev: false
 
   /walker/1.0.8:
     resolution: {integrity: sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==}

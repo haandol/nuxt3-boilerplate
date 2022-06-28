@@ -1,26 +1,21 @@
 <template>
   <div class="container grid grid-cols-2 gap-2 p-4">
-    <component
-      :is="'script'"
-      src="https://bernardo-castilho.github.io/DragDropTouch/DragDropTouch.js"
-      async
-    ></component>
     <div>
-      <ul class="sections">
-        <li
-          v-for="(item, i) in items"
-          :key="item.id"
-          :class="{ item: true, selected: selectedIndex === i }"
-          draggable="true"
-          @dragenter.prevent
-          @dragover.prevent
-          @dragstart="startDrag($event, i)"
-          @drop="onDrop($event, i)"
-          @click.prevent="(e) => onClickSection(e, i)"
-        >
-          {{ item.title }}
-        </li>
-      </ul>
+      <draggable
+        v-model="items"
+        class="sections"
+        item-key="id"
+        @end="onDrop"
+      >
+        <template #item="{ element, index }">
+          <div
+            :class="{ item: true, selected: selectedIndex === index }"
+            @click="onClickSection($event, index)"
+          >
+            {{ element.title }}
+          </div>
+        </template>
+      </draggable>
     </div>
     <div>
       <a
@@ -41,6 +36,7 @@
   setup
   lang="ts"
 >
+import draggable from 'vuedraggable'
 import _ from 'lodash'
 import { ref } from 'vue'
 const emit = defineEmits(['click'])
@@ -84,35 +80,21 @@ const onClickItem = (e, i) => {
   })
 }
 
-const startDrag = (event, srcIndex: number) => {
-  console.log('startDrag', event, srcIndex)
+const onDrop = ({ oldIndex, newIndex }) => {
+  console.log('onDrop', oldIndex, newIndex)
 
-  event.dataTransfer.dropEffect = 'move'
-  event.dataTransfer.effectAllowed = 'move'
-  event.dataTransfer.setData('text', `${srcIndex}`)
-}
+  const srcRef = itemRefs.value[oldIndex]
 
-const onDrop = (event, targetIndex: number) => {
-  console.log('onDrop', event, targetIndex)
-
-  const srcIndex = parseInt(event.dataTransfer.getData('text'))
-  const srcRef = itemRefs.value[srcIndex]
-  const srcItem = items.value[srcIndex]
-
-  if (srcIndex > targetIndex) {
-    for (let i = srcIndex; i > targetIndex; i--) {
-      items.value[i] = items.value[i - 1]
+  if (oldIndex > newIndex) {
+    for (let i = oldIndex; i > newIndex; i--) {
       itemRefs.value[i] = itemRefs.value[i - 1]
     }
-    itemRefs.value[targetIndex] = srcRef
-    items.value[targetIndex] = srcItem
-  } else if (srcIndex < targetIndex) {
-    for (let i = srcIndex; i < targetIndex; i++) {
-      items.value[i] = items.value[i + 1]
+    itemRefs.value[newIndex] = srcRef
+  } else if (oldIndex < newIndex) {
+    for (let i = oldIndex; i < newIndex; i++) {
       itemRefs.value[i] = itemRefs.value[i + 1]
     }
-    itemRefs.value[targetIndex] = srcRef
-    items.value[targetIndex] = srcItem
+    itemRefs.value[newIndex] = srcRef
   } else {
     console.log('same')
   }

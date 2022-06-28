@@ -49,6 +49,7 @@
     "cookie": "^0.5.0",
     "js-cookie": "^3.0.1",
     "pinia": "2.0.14",
-    "pinia-plugin-persistedstate-2": "^1.0.0"
+    "pinia-plugin-persistedstate-2": "^1.0.0",
+    "vuedraggable": "^4.1.0"
   }
 }
